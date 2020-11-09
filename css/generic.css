@@ -18,6 +18,7 @@ button {
 
 .button {
   height: 36px;
+  padding: 10px;
 }
 
 .link {
