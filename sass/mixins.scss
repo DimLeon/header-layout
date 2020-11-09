@@ -1,0 +1,70 @@
+// :before :after pseudo-elements
+@mixin pseudo($content:'', $display: block, $pos: absolute) {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+// Breakpoints Map
+$breakpoints:(
+    'mobile':           '(max-width: 414px)',
+    'tablet':           '(min-width: 768px) and (max-width: 1024px)',
+    'laptop':           '(min-width: 1025px) and (max-width: 1279px)',
+    'laptop-up':        '(min-width: 1025px)',
+    'desktop':          '(min-width: 1280px) and (max-width: 2047px)',
+    'desktop-up':       '(min-width: 1281px)',
+    'desktop-large':    '(min-width: 2048px)'
+);
+
+@mixin screen($name) {
+    @if map-has-key($breakpoints, $name) {
+        @media only screen and #{map-get($breakpoints, $name)} {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unknown '#{$name}' in $breakpoints.";
+    }
+}
+
+// Flex Layout
+/* Horizontal */
+@mixin flexH($align:center, $justify:space-between) {
+    display: flex;
+    flex-direction: row;
+    align-items: $align;  // justify for cross-axis (here it is y)
+    justify-content: $justify;  // justify along main axis (x)
+}
+
+/* Vertical */
+@mixin flexV($align:center, $justify:center) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align;  // justify for cross-axis (here it is x)
+    justify-content: $justify;  // justify along main axis (y)
+}
+
+// Buttons
+// @mixin button
+
+// z-index
+// z-index
+$z-layers: (
+    below:         -1,
+    zero:           0,
+    default:        1,
+    box-elem:       10,
+    navigation:     20,
+    dropdown:       30,
+    logo:           40
+);
+
+@function z-index($key) {
+    @if map-has-key($z-layers, $key) {
+        @return map-get($z-layers, $key);
+    }
+
+    @warn "Unknown '#{$key}' in $z-layers!";
+    @return null;
+}

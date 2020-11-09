@@ -1,0 +1,78 @@
+@import "colors";
+@import "typography";
+@import "mixins";
+@import "generic";
+
+.header-main {
+    background-image: $header;
+    padding: 0 10px;
+    @include flexH(center,flex-start);
+    flex-wrap: wrap;
+}
+
+.menu {
+    @include flexH(center,flex-start);
+
+    @include screen('desktop-up') {
+        height: 62px;
+    }
+
+    &-main {
+        @include flexH(center, space-between);
+    }
+
+    &__item {
+        font-size: 14px;
+        margin: 0 8px;
+
+        > a {
+            &:not(.active) {
+                color: transparentize($white, 0.46);
+            }
+            
+            &.active {
+                color: $white;
+            }
+        }
+    }
+
+    &__user {
+        color: $white;
+
+        .menu__item {
+            height: 36px;
+            @include flexH(center,center);
+        }
+
+        .offers {
+            @include flexH(center,center);
+            border-radius: 8px;
+            position: relative;
+
+            &__icon {
+                width: 36px;
+                height: 36px;
+                background-color: #232B36;
+            }
+
+            &__indicator {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            @include screen('desktop-up') {
+                &__text {
+                    display: none;
+                }
+            }
+        }
+
+        .deposit {
+            color: $white;
+            background-color: $red;
+            border-radius: 2px;
+            padding: 0 10px;
+        }
+    }
+}

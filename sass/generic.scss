@@ -1,0 +1,40 @@
+@import "colors";
+@import "mixins";
+
+ul {
+    margin: 0;
+
+    > li {
+        &:not(.list__item--bullets) {
+            list-style-type: none;
+        }
+    }
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.button {
+    height: 36px;
+}
+
+.link {
+    text-decoration: none;
+
+    &--light {
+        color: $white;
+    }
+
+    &--dark {
+        color: $dark;
+    }
+}
+
+.mid {
+    @include flexV(center,center);
+}
