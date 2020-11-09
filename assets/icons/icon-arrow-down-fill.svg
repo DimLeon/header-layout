@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="9px" viewBox="0 0 10 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>982DA451-5249-44C5-B23B-21E130EC3056@1x</title>
+    <defs>
+        <path d="M5,8.16666667 C4.57833333,8.16666667 4.175,7.9725 3.895,7.63166667 L0.384166667,3.38333333 C-0.0358333333,2.87416667 -0.12,2.15166667 0.168333333,1.54083333 C0.4225,1.00166667 0.928333333,0.666666667 1.48916667,0.666666667 L8.51083333,0.666666667 C9.07166667,0.666666667 9.5775,1.00166667 9.83166667,1.54083333 C10.12,2.15166667 10.0358333,2.87416667 9.61666667,3.3825 L6.105,7.63166667 C5.825,7.9725 5.42166667,8.16666667 5,8.16666667" id="path-1"></path>
+    </defs>
+    <g id="Test" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.866885231">
+        <g id="2048-/-🇬🇷-Greece-/-Logged-In" transform="translate(-1929.000000, -27.000000)">
+            <g id="Top-Right-Menu-/-Logged-in" transform="translate(1617.000000, 13.000000)">
+                <g id="Account-Ballance" transform="translate(246.000000, 8.000000)">
+                    <g id="Icons/Interface/arrow-down-fill" transform="translate(66.000000, 6.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="🎨-Icon-Сolor" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

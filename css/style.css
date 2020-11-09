@@ -1,0 +1,140 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Horizontal */
+/* Vertical */
+/* Horizontal */
+/* Vertical */
+ul {
+  margin: 0;
+}
+
+ul > li:not(.list__item--bullets) {
+  list-style-type: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.button {
+  height: 36px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link--light {
+  color: #FFFFFF;
+}
+
+.link--dark {
+  color: #101419;
+}
+
+.mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-main {
+  background-image: linear-gradient(135deg, #1A60A8 0%, #134577 60%, #101419 100%);
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media only screen and (min-width: 1281px) {
+  .menu {
+    height: 62px;
+  }
+}
+
+.menu-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu__item {
+  font-size: 14px;
+  margin: 0 8px;
+}
+
+.menu__item > a:not(.active) {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.menu__item > a.active {
+  color: #FFFFFF;
+}
+
+.menu__user {
+  color: #FFFFFF;
+}
+
+.menu__user .menu__item {
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__user .offers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.menu__user .offers__icon {
+  width: 36px;
+  height: 36px;
+  background-color: #232B36;
+}
+
+.menu__user .offers__indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media only screen and (min-width: 1281px) {
+  .menu__user .offers__text {
+    display: none;
+  }
+}
+
+.menu__user .deposit {
+  color: #FFFFFF;
+  background-color: #FF0042;
+  border-radius: 2px;
+  padding: 0 10px;
+}

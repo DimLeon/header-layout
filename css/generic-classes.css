@@ -1,0 +1,11 @@
+.link {
+  text-decoration: none;
+}
+
+.link--light {
+  color: #FFFFFF;
+}
+
+.link--dark {
+  color: #101419;
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>986FEE0C-0971-4B9E-837D-F7EB4AAB73E0</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="20" height="20" rx="10"></rect>
+        <path d="M11.1726974,6.078125 L10.8273026,6.078125 L10.8273026,4.7890625 C10.8273026,3.04159903 9.43555621,1.625 7.71875,1.625 C6.00194379,1.625 4.61019737,3.04159903 4.61019737,4.7890625 L4.61019737,6.078125 L4.26480263,6.078125 C3.75611931,6.078125 3.34375,6.49785805 3.34375,7.015625 L3.34375,11.9375 C3.34375,12.455267 3.75611931,12.875 4.26480263,12.875 L11.1726974,12.875 C11.6813807,12.875 12.09375,12.455267 12.09375,11.9375 L12.09375,7.015625 C12.09375,6.49785805 11.6813807,6.078125 11.1726974,6.078125 Z M7.71875,10.296875 C7.21006668,10.296875 6.79769737,9.87714195 6.79769737,9.359375 C6.79769737,8.84160805 7.21006668,8.421875 7.71875,8.421875 C8.22743332,8.421875 8.63980263,8.84160805 8.63980263,9.359375 C8.63980263,9.87714195 8.22743332,10.296875 7.71875,10.296875 Z M9.67598684,5.84375 C9.67598684,5.97319174 9.57289451,6.078125 9.44572368,6.078125 L5.99177632,6.078125 C5.86460549,6.078125 5.76151316,5.97319174 5.76151316,5.84375 L5.76151316,4.7890625 C5.76151316,3.68880774 6.63779795,2.79687503 7.71875,2.79687503 C8.79970205,2.79687503 9.67598684,3.68880774 9.67598684,4.7890625 L9.67598684,5.84375 Z" id="path-3"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="progress_bar-/-bonus-/-with-inline-indicator" transform="translate(-109.000000, 4.000000)">
+            <g id="locker" transform="translate(109.000000, -4.000000)">
+                <g id="shapes-/-radius-/-64" opacity="0.87">
+                    <g id="color">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Mask"></g>
+                        <g id="colors-/-04neutral-/-color-steel-800" mask="url(#mask-2)" fill="#1C2026">
+                            <rect id="color-steel-800" x="0" y="0" width="20" height="20"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="icons-/-01interface-/-locked" transform="translate(2.500000, 2.500000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-3"></use>
+                    <g id="colors-/-04neutral-/-color-white-snow" mask="url(#mask-4)" fill="#FFFFFF" fill-rule="evenodd">
+                        <rect id="color-white-snow" x="0" y="0" width="15" height="15"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

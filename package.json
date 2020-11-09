@@ -1,0 +1,29 @@
+{
+  "name": "header-layout",
+  "version": "1.0.0",
+  "description": "Create the layout of the Header & Balance components and add any interactivity needed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass --output-style=expanded sass/ -o css/",
+    "watch:sass": "npm run compile:sass && npm run compile:sass -- -w",
+    "autoprefix": "postcss css/*.css --use=autoprefixer --no-map --replace css/*.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimLeon/header-layout.git"
+  },
+  "author": "Jim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DimLeon/header-layout/issues"
+  },
+  "homepage": "https://github.com/DimLeon/header-layout#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0",
+    "postcss-cli": "^8.2.0"
+  },
+  "devDependencies": {
+    "modern-css-reset": "^1.3.0"
+  }
+}

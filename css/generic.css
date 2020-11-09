@@ -1,0 +1,40 @@
+/* Horizontal */
+/* Vertical */
+ul {
+  margin: 0;
+}
+
+ul > li:not(.list__item--bullets) {
+  list-style-type: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.button {
+  height: 36px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link--light {
+  color: #FFFFFF;
+}
+
+.link--dark {
+  color: #101419;
+}
+
+.mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
