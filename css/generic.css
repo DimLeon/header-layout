@@ -2,6 +2,7 @@
 /* Vertical */
 ul {
   margin: 0;
+  padding: 0;
 }
 
 ul > li:not(.list__item--bullets) {
@@ -14,11 +15,12 @@ button {
   border: none;
   outline: none;
   box-shadow: none;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .button {
   height: 36px;
-  padding: 10px;
 }
 
 .link {
@@ -38,4 +40,28 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.indicator {
+  color: #FFFFFF;
+  background: #F0506E;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.indicator:not(.indicator--rounded) {
+  width: 26px;
+  height: 12px;
+  border-radius: 8px;
+}
+
+.indicator--rounded {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
 }

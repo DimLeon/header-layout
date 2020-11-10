@@ -13,6 +13,7 @@ html {
 /* Vertical */
 ul {
   margin: 0;
+  padding: 0;
 }
 
 ul > li:not(.list__item--bullets) {
@@ -25,11 +26,12 @@ button {
   border: none;
   outline: none;
   box-shadow: none;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .button {
   height: 36px;
-  padding: 10px;
 }
 
 .link {
@@ -51,9 +53,33 @@ button {
   justify-content: center;
 }
 
+.circle {
+  border-radius: 50%;
+}
+
+.indicator {
+  color: #FFFFFF;
+  background: #F0506E;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.indicator:not(.indicator--rounded) {
+  width: 26px;
+  height: 12px;
+  border-radius: 8px;
+}
+
+.indicator--rounded {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
 .header-main {
   background-image: linear-gradient(135deg, #1A60A8 0%, #134577 60%, #101419 100%);
-  padding: 0 10px;
+  padding: 0 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,25 +91,24 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 @media only screen and (min-width: 1281px) {
   .menu {
+    width: calc(100% - 142px);
     height: 62px;
+    margin-left: 20px;
   }
 }
 
-.menu-main {
+.menu__wrapper {
+  flex: 0 0 65%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
-
-.menu__item {
-  font-size: 14px;
-  margin: 0 8px;
 }
 
 .menu__item > a:not(.active) {
@@ -94,48 +119,69 @@ button {
   color: #FFFFFF;
 }
 
-.menu__user {
-  color: #FFFFFF;
+.menu__item > a + .indicator {
+  display: inline-block;
 }
 
-.menu__user .menu__item {
+.user-actions__wrapper {
+  flex: 0 0 35%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user-actions__item {
   height: 36px;
+  margin: 0 12px;
+  color: #FFFFFF;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.menu__user .offers {
+.user-actions__item .offers {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   position: relative;
-}
-
-.menu__user .offers__icon {
-  width: 36px;
-  height: 36px;
   background-color: #232B36;
 }
 
-.menu__user .offers__indicator {
+.user-actions__item .offers__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.user-actions__item .offers__indicator {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -6px;
+  right: -6px;
 }
 
 @media only screen and (min-width: 1281px) {
-  .menu__user .offers__text {
+  .user-actions__item .offers__text {
     display: none;
   }
 }
 
-.menu__user .deposit {
+.user-actions__item .balance {
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.user-actions__item .deposit {
   color: #FFFFFF;
   background-color: #FF0042;
   border-radius: 2px;
   padding: 0 10px;
+}
+
+.menu__item,
+.user-actions__item {
+  font-size: 14px;
 }

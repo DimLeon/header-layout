@@ -3,6 +3,7 @@
 
 ul {
     margin: 0;
+    padding: 0;
 
     > li {
         &:not(.list__item--bullets) {
@@ -17,6 +18,8 @@ button {
     border: none;
     outline: none;
     box-shadow: none;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .button {
@@ -37,4 +40,28 @@ button {
 
 .mid {
     @include flexV(center,center);
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.indicator {
+    color: $white;
+    background: $indicator;
+    font-size: 9px;
+    font-weight: 700;
+    text-align: center;
+
+    &:not(.indicator--rounded) {
+        width: 26px;
+        height: 12px;
+        border-radius: 8px;
+    }
+    
+    &--rounded {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+    }
 }
