@@ -8,6 +8,7 @@
 // Breakpoints Map
 $breakpoints:(
     'mobile':               '(max-width: 414px)',
+    'mobile-up':            '(min-width: 415px)',
     'phablet':              '(max-width: 767.9px)',
     'tablet':               '(min-width: 768px) and (max-width: 1024px)',
     'tablet-up':            '(min-width: 768px)',

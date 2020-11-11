@@ -15,6 +15,10 @@
     @include viewport('mobile-laptop') {
         padding: 0 10px;
     }
+
+    @include viewport('mobile') {
+        position: relative;
+    }
 }
 
 .site-logo {
@@ -81,8 +85,6 @@
     }
 
     &__item {
-        font-weight: 700;
-
         @include viewport('desktop-up') {
             margin: 0 0.5vw;
         }
@@ -136,14 +138,14 @@
             margin: 0 0.25vw;
         }
 
-        &:not(.balance):not(.deposit) {
+        &:not(.deposit) {
             height: 36px;
-            border-radius: 8px;
-            @include transition(background-color);
+            opacity: 0.87;
+            @include transition(opacity);
             
             &:hover {
                 cursor: pointer;
-                background-color: $dark;
+                opacity: 1;
             }
         }
 
@@ -199,7 +201,6 @@
                 background-color: $blue;
                 height: 100%;
                 padding: 0 5px;
-                font-weight: 700;
                 border-radius: 0 8px 8px 0;
                 @include transition(background-color);
 
@@ -213,9 +214,189 @@
             }
         }
 
-        .balance-value {
-            margin-right: 8px;
-            white-space: nowrap;
+        &.balance {
+            padding: 4px;
+            
+            @include viewport('mobile-up') {
+                position: relative;
+            }
+
+            .balance-value {
+                margin-right: 8px;
+                white-space: nowrap;
+            }
+        }
+
+        .account-details {
+            position: absolute;
+            width: 300px;
+            background-color: $white;
+            cursor: default;
+
+            @include viewport('mobile-up') {
+                top: calc(100% + 6px);
+                right: 0;
+            }
+            
+            @include viewport('mobile') {
+                top: 100%;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -8px;
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid $darksnow;
+                
+                @include viewport('mobile-up') {
+                    right: 32px;
+                }
+                
+                @include viewport('mobile') {
+                    right: calc(50% - 40px);
+                }
+            }
+
+            .view-mode,
+            .user-basic-info,
+            .user-account {
+                @include flexH(center,space-between);
+            }
+            
+            .view-mode,
+            .details-list,
+            .user-account {
+                padding: 10px;
+            }
+
+            .view-mode {
+                color: $dark;
+                background-color: $darksnow;
+
+                &__label {
+                    @include flexH(center,flex-start);
+
+                    > svg { width: 24px; }
+                }
+            }
+
+            .details-list {
+                > li {
+                    @include flexH(center,space-between);
+                    flex-wrap: wrap;
+                    margin: 6px 0;
+                    font-size: 12px;
+                }
+
+                &__property {
+                    color: $dark;
+
+                    &:not(.bold) {
+                        font-weight: 400;
+                    }
+
+                    &--blue {
+                        color: $lightblue;
+                    }
+                }
+
+                &__value {
+                    font-weight: 700;
+                    color: transparentize($dark, 0.46);
+
+                    &--em {
+                        color: $dark;
+                        font-size: 14px;
+                    }
+                }
+
+                &.user-data {
+                    border-top: 1px solid $darksnow;
+                    border-bottom: 1px solid $darksnow;
+                }
+
+                > .bonus-container {
+                    .indicator {
+                        font-weight: 400;
+                        padding: 1px 6px;
+                        margin-left: 5px;
+                    }
+                    
+                    .bonus__progress-bar {
+                        width: 100%;
+                        height: 22px;
+                        position: relative;
+                        @include flexH(center,flex-start);
+                        margin-top: 5px;
+
+                        > span[class*=icon-] {
+                            position: absolute;
+                            width: 20px;
+                            height: 20px;
+                            top: 1px;
+                        }
+
+                        > .icon-locker {
+                            left: calc(45% - 20px);
+                        }
+
+                        > .icon-coins {
+                            right: 0;
+                        }
+
+                        > progress[value] {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: 100%;
+                            height: 12px;
+                            border: 2px solid $black;
+                            border-radius: 8px;
+
+
+                            &::-webkit-progress-bar {
+                                background-color: $black;
+                                border-radius: 8px;
+                                overflow: hidden;
+                            }
+
+                            &::-webkit-progress-value {
+                                background-color: $lightblue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .user-basic-info {
+                .details-list__value {
+                    @include flexH(center,center);
+                }
+
+                .amount-refresh {
+                    width: 32px;
+                }
+            }
+
+            .user-account {
+                &__enter {
+                    width: calc(100% - 42px);
+                    background-color: $white;
+                    border: 1.5px solid $dark;
+                    border-radius: 2px;
+                    padding: 8px 0;
+                }
+
+                &__logout {
+                    background-color: $white;
+                }
+            }
         }
     }
 }

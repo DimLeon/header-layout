@@ -1,0 +1,71 @@
+[
+    {
+        "user": "Jim",
+        "betAvailable":         "1590,00€",
+        "withdrawAvailable":    "1590,00€",
+        "openBets":             "200,00€",
+        "points":               "8260",
+        "bonus": {
+            "amount":          "500€",
+            "wagered":         "250€",
+            "unlockBalance":    "",
+            "bonusBalance":     ""
+        }
+    
+    },
+    {
+        "user": "George",
+        "betAvailable":         "112,00€",
+        "withdrawAvailable":    "112,00€",
+        "openBets":             "9,00€",
+        "points":               "2740",
+        "bonus": {
+            "amount":          "200€",
+            "wagered":         "180€",
+            "unlockBalance":   "",
+            "bonusBalance":    ""
+        }
+    
+    },
+    {
+        "user": "Sadie",
+        "betAvailable":         "20,40€",
+        "withdrawAvailable":    "20,40€",
+        "openBets":             "27,00€",
+        "points":               "2740",
+        "bonus": {
+            "amount":          "100,00€",
+            "wagered":         "80€",
+            "unlockBalance":    "",
+            "bonusBalance":     ""
+        }
+    
+    },
+    {
+        "user": "Anastasia",
+        "betAvailable":         "590,00€",
+        "withdrawAvailable":    "590,50€",
+        "openBets":             "215,00€",
+        "points":               "10740",
+        "bonus": {
+            "amount":          "180,00€",
+            "wagered":         "80€",
+            "unlockBalance":    "",
+            "bonusBalance":     ""
+        }
+    
+    },
+    {
+        "user": "Christos",
+        "betAvailable":         "670,00€",
+        "withdrawAvailable":    "670,00€",
+        "openBets":             "235,00€",
+        "points":               "17900",
+        "bonus": {
+            "amount":           "300,00€",
+            "wagered":          "120€",
+            "unlockBalance":    "",
+            "bonusBalance":     ""
+        }
+    }
+]
