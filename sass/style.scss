@@ -5,38 +5,101 @@
 
 .header-main {
     background-image: $header;
-    padding: 0 20px;
     @include flexH(center,flex-start);
     flex-wrap: wrap;
+    
+    @include viewport('desktop-up') {
+        padding: 0 12px;
+    }
+    
+    @include viewport('mobile-laptop') {
+        padding: 0 10px;
+    }
+}
+
+.site-logo {
+    @include viewport('tablet-laptop') {
+        order: 1;    
+    }
+
+    @include viewport('mobile') {
+        height: 100%;
+        @include flexV(center,center);
+
+        > svg {
+            width: 24px;
+            transform: scale(1.5);
+            transform-origin: 0 50%;
+
+            path:not(.logo__first-letter) {
+                display: none;
+            }
+        }
+    }
 }
 
 .menu {
-    @include flexH(center, space-between);
-    flex-wrap: wrap;
-
-    @include screen('desktop-up') {
-        width: calc(100% - 142px);
+    @include viewport('desktop-up') {
+        width: calc(70% - 142px);
         height: 62px;
         margin-left: 20px;
     }
 
+    @include viewport('tablet-laptop') {
+        width: 100%;
+        height: 36px;
+        order: 3;
+        position: relative;
+        // border-top: 1px solid transparentize($white, 0.83);
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: 1px;
+            background-color: transparentize($white, 0.83);
+        }
+    }
+
+    @include viewport('phablet') {
+        display: none;
+    }
+
     &__wrapper {
-        flex: 0 0 65%;
-        @include flexH(center, space-between);
+        width: 100%;
+        height: 100%;
+
+        @include viewport('desktop-up') {
+            @include flexH(center, flex-start);
+        }
+        
+        @include viewport('tablet-laptop') {
+            @include flexH(center, center);
+        }
     }
 
     &__item {
+        font-weight: 700;
+
+        @include viewport('desktop-up') {
+            margin: 0 0.5vw;
+        }
+        
+        @include viewport('tablet-laptop') {
+            margin: 0 0.8vw;
+        }
+
         > a {
-            &:not(.active) {
-                color: transparentize($white, 0.46);
-            }
-            
             &.active {
                 color: $white;
             }
 
             + .indicator {
                 display: inline-block;
+                position: relative;
+                top: -2px;
             }
         }
     }
@@ -44,25 +107,83 @@
 
 .user-actions {
     &__wrapper {
-        flex: 0 0 35%;
         @include flexH(center, flex-end);
+        
+        @include viewport('desktop-up') {
+            flex: 0 0 30%;
+        }
+        
+        @include viewport('tablet-laptop') {
+            order: 2;
+            height: 62px;
+        }
+
+        @include viewport('mobile-laptop') {
+            width: calc(100% - 122px);
+            flex: 1;
+        }
+        
+        @include viewport('phablet') {
+            height: 52px;
+        }
     }
 
     &__item {
-        height: 36px;
-        margin: 0 12px;
         color: $white;
         @include flexH(center,center);
         
+        &:not(:last-of-type) {
+            margin: 0 0.25vw;
+        }
+
+        &:not(.balance):not(.deposit) {
+            height: 36px;
+            border-radius: 8px;
+            @include transition(background-color);
+            
+            &:hover {
+                cursor: pointer;
+                background-color: $dark;
+            }
+        }
+
+        &.search,
+        &.contact,
+        &.message {
+            width: 36px;
+        }
+
+        &.search,
+        &.user-offers {
+            @media screen and (max-width: 640px) {
+                display: none;
+            }
+        }
+
+        &.deposit {
+            margin-left: 8px;
+        }
+
         .offers {
             @include flexH(center,center);
-            border-radius: 8px;
-            position: relative;
             background-color: #232B36;
+            padding: 0;
+            border-radius: 8px;
+            @include transition(background-color);
+
+            &:hover,
+            &:focus {
+                background-color: darken($blue, 18%);
+
+                > .offers__text {
+                    background-color: lighten($blue, 6%);
+                }
+            }
             
             &__icon {
                 width: 36px;
                 height: 36px;
+                position: relative;
                 border-radius: 8px;
             }
 
@@ -70,25 +191,31 @@
                 position: absolute;
                 top: -6px;
                 right: -6px;
+                text-indent: -2px;
             }
 
-            @include screen('desktop-up') {
-                &__text {
+            &__text {
+                color: $white;
+                background-color: $blue;
+                height: 100%;
+                padding: 0 5px;
+                font-weight: 700;
+                border-radius: 0 8px 8px 0;
+                @include transition(background-color);
+
+                @include viewport('desktop-medium') {
+                    display: none;
+                }
+                
+                @include viewport('phablet') {
                     display: none;
                 }
             }
         }
 
-        .balance {
+        .balance-value {
             margin-right: 8px;
             white-space: nowrap;
-        }
-
-        .deposit {
-            color: $white;
-            background-color: $red;
-            border-radius: 2px;
-            padding: 0 10px;
         }
     }
 }

@@ -7,16 +7,22 @@
 
 // Breakpoints Map
 $breakpoints:(
-    'mobile':           '(max-width: 414px)',
-    'tablet':           '(min-width: 768px) and (max-width: 1024px)',
-    'laptop':           '(min-width: 1025px) and (max-width: 1279px)',
-    'laptop-up':        '(min-width: 1025px)',
-    'desktop':          '(min-width: 1280px) and (max-width: 2047px)',
-    'desktop-up':       '(min-width: 1281px)',
-    'desktop-large':    '(min-width: 2048px)'
+    'mobile':               '(max-width: 414px)',
+    'phablet':              '(max-width: 767.9px)',
+    'tablet':               '(min-width: 768px) and (max-width: 1024px)',
+    'tablet-up':            '(min-width: 768px)',
+    'tablet-laptop':        '(min-width: 768px) and (max-width: 1279px)',
+    'laptop':               '(min-width: 1025px) and (max-width: 1279px)',
+    'laptop-up':            '(min-width: 1025px)',
+    'mobile-laptop':        '(max-width: 1279px)',
+    'desktop':              '(min-width: 1280px) and (max-width: 2047px)',
+    'desktop-up':           '(min-width: 1280px)',
+    'desktop-medium':       '(min-width: 1280px) and (max-width: 1439px)',
+    'desktop-medium-up':    '(min-width: 1440px)',
+    'desktop-large':        '(min-width: 2048px)'
 );
 
-@mixin screen($name) {
+@mixin viewport($name) {
     @if map-has-key($breakpoints, $name) {
         @media only screen and #{map-get($breakpoints, $name)} {
             @content;
@@ -25,6 +31,31 @@ $breakpoints:(
 
     @else {
         @warn "Unknown '#{$name}' in $breakpoints.";
+    }
+}
+
+// Set custom breakpoints
+@mixin viewportCustom($set, $width, $width2) {
+    @if $set == 'min' {
+        @media only screen and (min-width: $width) {
+            @content;
+        } 
+    }
+
+    @else if $set == 'max' {
+        @media only screen and (max-width: $width2) {
+            @content;
+        }
+    }
+
+    @else if $set == 'min-max' {
+        @media only screen and (min-width: $width) and (max-width: $width2) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Unknown '#{$set}'. Choose one of 'min', 'max', or 'min-max'";
     }
 }
 
@@ -45,10 +76,7 @@ $breakpoints:(
     justify-content: $justify;  // justify along main axis (y)
 }
 
-// Buttons
-// @mixin button
 
-// z-index
 // z-index
 $z-layers: (
     below:         -1,
@@ -67,4 +95,28 @@ $z-layers: (
 
     @warn "Unknown '#{$key}' in $z-layers!";
     @return null;
+}
+
+// Durations
+$short: 0.2s;
+$normal: 0.3s;
+$long: 0.6s;
+
+// Transitions
+$properties:(
+    opacity:          opacity $short ease,
+    visibility:       visibility $short ease,
+    transform:        transform $short ease,
+    color:            color $short ease,
+    background-color: background-color $short ease,
+);
+
+@mixin transition($prop) {
+    @if map-has-key($properties, $prop) {
+        transition: map-get($properties, $prop);
+    }
+
+    @else {
+        @warn "Unknown '#{$prop}' in $properties.";
+    }
 }

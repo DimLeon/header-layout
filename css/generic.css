@@ -9,6 +9,10 @@ ul > li:not(.list__item--bullets) {
   list-style-type: none;
 }
 
+a {
+  color: inherit;
+}
+
 button {
   margin: 0;
   padding: 0;
@@ -21,10 +25,25 @@ button {
 
 .button {
   height: 36px;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+
+.button--red {
+  color: #FFFFFF;
+  background-color: #FF0042;
+  transition: background-color 0.2s ease;
+}
+
+.button--red:hover, .button--red:focus {
+  cursor: pointer;
+  background-color: #e0003a;
 }
 
 .link {
+  cursor: pointer;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .link--light {
@@ -33,6 +52,14 @@ button {
 
 .link--dark {
   color: #101419;
+}
+
+.link--offwhite {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.link--offwhite:hover, .link--offwhite:focus, .link--offwhite.active {
+  color: #FFFFFF;
 }
 
 .mid {
@@ -50,7 +77,6 @@ button {
   color: #FFFFFF;
   background: #F0506E;
   font-size: 9px;
-  font-weight: 700;
   text-align: center;
 }
 

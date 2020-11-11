@@ -12,6 +12,10 @@ ul {
     }
 }
 
+a {
+    color: inherit;
+}
+
 button {
     margin: 0;
     padding: 0;
@@ -24,9 +28,24 @@ button {
 
 .button {
     height: 36px;
+    border-radius: 2px;
+    padding: 0 10px;
+
+    &--red {
+        color: $white;
+        background-color: $red;
+        @include transition(background-color);
+        
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: darken($red, 6%);
+        }
+    }
 }
 
 .link {
+    cursor: pointer;
     text-decoration: none;
 
     &--light {
@@ -36,6 +55,18 @@ button {
     &--dark {
         color: $dark;
     }
+
+    &--offwhite {
+        color: $offwhite;
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: $white;
+        }
+    }
+
+    @include transition(color);
 }
 
 .mid {
@@ -50,7 +81,6 @@ button {
     color: $white;
     background: $indicator;
     font-size: 9px;
-    font-weight: 700;
     text-align: center;
 
     &:not(.indicator--rounded) {
