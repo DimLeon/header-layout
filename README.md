@@ -14,4 +14,4 @@ New data on each refresh-click are randomly generated through a given array.
  rest of the amounts are maths results and dependent on each other.
 
 ## Packages used:
-npm, autoprefixer, modern-css-reset and json-server
+node-sass, autoprefixer, modern-css-reset and json-server
