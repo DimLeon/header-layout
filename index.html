@@ -104,7 +104,7 @@
                 </svg>
             </div>
 
-            <div class="user-actions__item balance">
+            <div id="balanceHandler" class="user-actions__item balance">
                 <span class="balance-value bold no-select">2104.16 €</span>
                 <svg width="10" height="9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
@@ -113,7 +113,7 @@
                     <use fill="#FFF" xlink:href="#caretDown" fill-rule="evenodd" />
                 </svg>
 
-                <div id="account_details" class="account-details">
+                <div id="account_details" class="account-details" style="display: none;">
                     <div class="view-mode">
                         <span class="view-mode__label">
                             <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -134,7 +134,7 @@
                         </span>
                         <span class="view-mode__toggler">
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" checked>
                                 <span class="slider round"></span>
                             </label>
                         </span>
@@ -143,23 +143,22 @@
                     <div class="details-list user-basic-info bold">
                         <span class="details-list__property bold">Jim</span>
                         <span class="details-list__value details-list__value--em">
-                            <span class="amount-refresh mid">
+                            <button id="refresh_amounts" class="amount-refresh mid">
                                 <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <title>Refresh</title>
+                                    <title>Ανανέωση</title>
                                     <defs>
                                         <path id="refresh" d="M4.8675 7.83333l-2.05917 1.8925C3.7 11.095 5.245 12 7 12c2.4775 0 4.53417-1.80167 4.93083-4.16667H13.615c-.41 3.28834-3.215 5.83334-6.615 5.83334-2.24083 0-4.22333-1.10584-5.4325-2.80084L.33333 12V7.83333H4.8675zM7 .33333c2.26667 0 4.26917 1.13084 5.47333 2.86L13.66667 2v4.16667H9.5l1.77-1.77C10.39167 2.95917 8.8075 2 7 2 4.5225 2 2.46583 3.80167 2.06917 6.16667H.385C.795 2.87833 3.6.33333 7 .33333z" />
                                     </defs>
-                                    <g fill="none" fill-rule="evenodd" opacity=".38">
+                                    <g id="refresh_opacity" fill="none" fill-rule="evenodd" opacity=".38">
                                       <mask id="refresh_mask" fill="#fff">
                                         <use xlink:href="#refresh"/>
                                       </mask>
-                                      <use fill="#030104" fill-rule="nonzero" xlink:href="#refresh"/>
-                                      <g mask="url(#refresh_mask)" fill="#1C2026">
+                                      <g id="refresh_color" mask="url(#refresh_mask)" fill="#1C2026">
                                         <path d="M-3-3h20v20H-3z"/>
                                       </g>
                                     </g>
                                 </svg>                                  
-                            </span>
+                            </button>
                             <span class="amount-text">3,18€</span>
                         </span>
                     </div>
@@ -167,29 +166,29 @@
                     <ul class="details-list user-data">
                         <li>
                             <span class="details-list__property">Διαθέσιμα για στοιχηματισμό</span>
-                            <span class="details-list__value">3,18€</span>
+                            <span class="details-list__value" data-name="betAvailable">DEMO</span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Διαθέσιμα για ανάληψη</span>
-                            <span class="details-list__value">3,18€</span>
+                            <span class="details-list__value" data-name="withdrawAvailable">DEMO</span>
                         </li>
 
                         <li>
                             <span class="details-list__property details-list__property--blue">Ανοιχτά στοιχήματα</span>
-                            <span class="details-list__value">10,00€</span>
+                            <span class="details-list__value" data-name="openBets">DEMO</span>
                         </li>
 
                         <li>
                             <span class="details-list__property details-list__property--blue">Πόντοι Road to Glory</span>
-                            <span class="details-list__value">1440</span>
+                            <span class="details-list__value" data-name="points">DEMO</span>
                         </li>
                     </ul>
 
                     <ul class="details-list">
                         <li class="bonus-container">
                             <span class="details-list__property bold">Bonus<span class="indicator">LOCKED</span></span>
-                            <span class="details-list__value details-list__value--em">100,00€</span>
+                            <span class="details-list__value details-list__value--em" data-name="bonusAmount">100,00€</span>
                             <span class="bonus__progress-bar">
                                 <span class="icon-locker mid">
                                     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -251,17 +250,17 @@
 
                         <li>
                             <span class="details-list__property">Τζιραρισμένο</span>
-                            <span class="details-list__value">60€</span>
+                            <span class="details-list__value" data-name="wagered">DEMO</span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Υπόλοιπο Ξεκλειδώματος Bonus</span>
-                            <span class="details-list__value">40€</span>
+                            <span class="details-list__value" data-name="balanceForUnlock">DEMO</span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Υπόλοιπο Ανάληψης Bonus</span>
-                            <span class="details-list__value">940€</span>
+                            <span class="details-list__value" data-name="bonusBalance">DEMO</span>
                         </li>
                     </ul>
 
@@ -269,6 +268,7 @@
                         <button class="user-account__enter bold">Ο ΛΟΓΑΡΙΑΣΜΟΣ ΜΟΥ</button>
                         <button class="user-account__logout">
                             <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <title>Έξοδος</title>
                                 <defs>
                                   <path id="logout" d="M7.78 0c.3344 0 .6053.2514.6053.5616 0 .307-.271.5584-.6052.5584H3.276c-1.1402 0-2.0656.8588-2.0692 1.92v9.9167c0 1.058.929 1.92 2.0691 1.92h4.4302c.3343 0 .6052.2515.6052.5617 0 .307-.271.5583-.6052.5583H3.276c-1.8051 0-3.276-1.3649-3.276-3.04V3.04C0 1.3649 1.4709 0 3.276 0zm3.7019 4.3722c.2357-.2187.6193-.2187.855 0l3.4801 3.2262c.0176.013.0282.0294.0423.0424l.007.0065c.0105.0098.0176.0229.0281.036.0036.0032.0036.0065.007.0098a.2395.2395 0 01.0247.0391l.014.0278.0106.0212c.0036.0033.0036.0033.0036.0066.007.0163.014.0293.0176.0457.0035 0 .0035.0032.0035.0065.0035.0163.007.0294.0105.0457a.0276.0276 0 01.0035.0163c.0036.0131.007.0262.007.0392A.2943.2943 0 0116 7.9967c0 .0196 0 .036-.0035.0555-.0035.0131-.0035.0262-.007.0392-.0036.0066-.0036.0098-.0036.0164 0 .0163-.007.0293-.0105.0457-.0036 0-.0036.0032-.0036.0065-.007.0163-.0105.0326-.0176.0457-.0035.0033-.0035.0033-.0035.0065a.512.512 0 01-.021.0425s-.0036.0033-.0036.0065c-.007.013-.0176.0261-.0246.0392-.0036.0033-.0036.0065-.007.0098-.0071.013-.0177.0229-.0282.036l-.007.0064a.6504.6504 0 00-.0458.0458l-3.459 3.2098c-.1161.1077-.271.1632-.4258.1632s-.3096-.0555-.4257-.1632c-.2358-.2188-.2358-.5747 0-.7935l2.4315-2.2563H4.1944c-.3343 0-.6052-.2515-.6052-.5617 0-.3069.271-.5583.6052-.5583h9.7365l-2.449-2.2727c-.2358-.2188-.2358-.5747 0-.7935z"/>
                                 </defs>

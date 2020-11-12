@@ -2,7 +2,7 @@
 @import "mixins";
 
 body {
-    background-color: darken($white, 8%);
+    background-color: darken($white, 4%);
 }
 
 ul {
@@ -30,6 +30,7 @@ button {
     box-shadow: none;
     user-select: none;
     text-align: center;
+    background-color: inherit;
 }
 
 .button {
@@ -132,7 +133,6 @@ button {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
 }
   

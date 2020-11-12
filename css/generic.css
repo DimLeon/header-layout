@@ -1,7 +1,7 @@
 /* Horizontal */
 /* Vertical */
 body {
-  background-color: #ebebeb;
+  background-color: whitesmoke;
 }
 
 ul {
@@ -27,6 +27,7 @@ button {
   box-shadow: none;
   user-select: none;
   text-align: center;
+  background-color: inherit;
 }
 
 .button {
@@ -125,7 +126,6 @@ button {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
   transition: .4s;
 }
 

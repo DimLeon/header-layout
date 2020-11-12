@@ -17,7 +17,7 @@ html {
 /* Horizontal */
 /* Vertical */
 body {
-  background-color: #ebebeb;
+  background-color: whitesmoke;
 }
 
 ul {
@@ -43,6 +43,7 @@ button {
   box-shadow: none;
   user-select: none;
   text-align: center;
+  background-color: inherit;
 }
 
 .button {
@@ -141,7 +142,6 @@ button {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
   transition: .4s;
 }
 
@@ -355,7 +355,7 @@ input:checked + .slider:before {
   transition: opacity 0.2s ease;
 }
 
-.user-actions__item:not(.deposit):hover {
+.user-actions__item:not(.deposit):hover:not(.active), .user-actions__item:not(.deposit).active {
   cursor: pointer;
   opacity: 1;
 }
@@ -429,6 +429,7 @@ input:checked + .slider:before {
 }
 
 .user-actions__item.balance {
+  height: 100%;
   padding: 4px;
 }
 
@@ -447,19 +448,18 @@ input:checked + .slider:before {
   position: absolute;
   width: 300px;
   background-color: #FFFFFF;
+  top: 100%;
   cursor: default;
 }
 
 @media only screen and (min-width: 415px) {
   .user-actions__item .account-details {
-    top: calc(100% + 6px);
     right: 0;
   }
 }
 
 @media only screen and (max-width: 414px) {
   .user-actions__item .account-details {
-    top: 100%;
     right: 0;
     left: 0;
     margin: 0 auto;
@@ -617,18 +617,22 @@ input:checked + .slider:before {
 
 .user-actions__item .account-details .user-basic-info .amount-refresh {
   width: 32px;
+  height: 24px;
+}
+
+.user-actions__item .account-details .user-basic-info .amount-refresh:hover > svg > #refresh_opacity, .user-actions__item .account-details .user-basic-info .amount-refresh:focus > svg > #refresh_opacity {
+  opacity: 1;
+}
+
+.user-actions__item .account-details .user-basic-info .amount-refresh:hover > svg #refresh_color, .user-actions__item .account-details .user-basic-info .amount-refresh:focus > svg #refresh_color {
+  fill: #1E87F0;
 }
 
 .user-actions__item .account-details .user-account__enter {
   width: calc(100% - 42px);
-  background-color: #FFFFFF;
   border: 1.5px solid #101419;
   border-radius: 2px;
   padding: 8px 0;
-}
-
-.user-actions__item .account-details .user-account__logout {
-  background-color: #FFFFFF;
 }
 
 .menu__item,
