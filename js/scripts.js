@@ -1,4 +1,3 @@
-
 (function ($, window, document) {
     $(function () {
 
@@ -42,16 +41,21 @@
         $('#incognitoSwitch').on('click', function() {
             modeIncognito = !modeIncognito;
 
-            if (!modeIncognito) {
+            if (modeIncognito) {
                 $(this).prop("checked");
+
+                myStorage.setItem('amounts', 'visible');
             }
 
-            myStorage.setItem('hideAmounts', modeIncognito);
+            else {
+                myStorage.removeItem('amounts');
+            }
+
 
             showHideAmounts(mutableValues, modeIncognito);
         });
         
-        if (myStorage.getItem('hideAmounts') === 'true') {
+        if (myStorage.getItem('amounts') === 'visible') {
             modeIncognito = true;
             $('#incognitoSwitch').prop('checked', 'checked');
         }
