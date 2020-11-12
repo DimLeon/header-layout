@@ -1,0 +1,14 @@
+{
+    "usersData": {
+        "name":                 "JimLeon",
+        "deposit":              "100",
+        "betAvailable":         "1590.00",
+        "withdrawAvailable":    "1590.00",
+        "openBets":             "227.00",
+        "points":               "8260",
+        "bonusAmount":          "100",
+        "wagered":              "60",
+        "balanceForUnlock":     "40",
+        "bonusBalance":         "940"
+    }
+}

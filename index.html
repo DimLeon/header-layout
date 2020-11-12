@@ -134,14 +134,16 @@
                         </span>
                         <span class="view-mode__toggler">
                             <label class="switch">
-                                <input type="checkbox" checked>
+                                <input id="incognitoSwitch" type="checkbox" />
                                 <span class="slider round"></span>
                             </label>
                         </span>
                     </div>
 
                     <div class="details-list user-basic-info bold">
-                        <span class="details-list__property bold">Jim</span>
+                        <span class="details-list__property bold" data-name="user">
+                            <span class="loader"></span>
+                        </span>
                         <span class="details-list__value details-list__value--em">
                             <button id="refresh_amounts" class="amount-refresh mid">
                                 <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -159,24 +161,32 @@
                                     </g>
                                 </svg>                                  
                             </button>
-                            <span class="amount-text">3,18€</span>
+                            <span class="amount-text" data-name="depositValue">
+                                <span class="loader"></span>
+                            </span>
                         </span>
                     </div>
                     
                     <ul class="details-list user-data">
                         <li>
                             <span class="details-list__property">Διαθέσιμα για στοιχηματισμό</span>
-                            <span class="details-list__value" data-name="betAvailable">DEMO</span>
+                            <span class="details-list__value" data-name="betAvailable">
+                                <span class="loader"></span>
+                            </span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Διαθέσιμα για ανάληψη</span>
-                            <span class="details-list__value" data-name="withdrawAvailable">DEMO</span>
+                            <span class="details-list__value" data-name="withdrawAvailable">
+                                <span class="loader"></span>
+                            </span>
                         </li>
 
                         <li>
                             <span class="details-list__property details-list__property--blue">Ανοιχτά στοιχήματα</span>
-                            <span class="details-list__value" data-name="openBets">DEMO</span>
+                            <span class="details-list__value" data-name="openBets">
+                                <span class="loader"></span>
+                            </span>
                         </li>
 
                         <li>
@@ -187,8 +197,11 @@
 
                     <ul class="details-list">
                         <li class="bonus-container">
-                            <span class="details-list__property bold">Bonus<span class="indicator">LOCKED</span></span>
-                            <span class="details-list__value details-list__value--em" data-name="bonusAmount">100,00€</span>
+                            <span id="bonusIndicator" class="details-list__property bold">Bonus</span>
+                            <span class="details-list__value details-list__value--em" data-name="bonusAmount">
+                                <span class="loader"></span>
+                            </span>
+
                             <span class="bonus__progress-bar">
                                 <span class="icon-locker mid">
                                     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -244,23 +257,29 @@
                                         </g>
                                     </svg>                                      
                                 </span>
-                                <progress id="bonus_progress" value="30" min="0" max="100"> 32% </progress>
+                                <progress id="bonus_progress" value="" min="0" max="250"></progress>
                             </span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Τζιραρισμένο</span>
-                            <span class="details-list__value" data-name="wagered">DEMO</span>
+                            <span class="details-list__value" data-name="wagered">
+                                <span class="loader"></span>
+                            </span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Υπόλοιπο Ξεκλειδώματος Bonus</span>
-                            <span class="details-list__value" data-name="balanceForUnlock">DEMO</span>
+                            <span class="details-list__value" data-name="balanceForUnlock">
+                                <span class="loader"></span>
+                            </span>
                         </li>
 
                         <li>
                             <span class="details-list__property">Υπόλοιπο Ανάληψης Bonus</span>
-                            <span class="details-list__value" data-name="bonusBalance">DEMO</span>
+                            <span class="details-list__value" data-name="bonusBalance">
+                                <span class="loader"></span>
+                            </span>
                         </li>
                     </ul>
 

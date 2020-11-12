@@ -235,6 +235,9 @@
             background-color: $white;
             top: 100%;
             cursor: default;
+            box-shadow: 0 8px 17px 2px rgba(0,0,0,0.14),
+                        0 3px 14px 2px rgba(0,0,0,0.12),
+                        0 5px 5px -3px rgba(0, 0, 0, 0.2);
 
             @include viewport('mobile-up') {
                 right: 0;
@@ -309,6 +312,7 @@
                 }
 
                 &__value {
+                    height: 20px;
                     font-weight: 700;
                     color: transparentize($dark, 0.46);
 
@@ -384,8 +388,15 @@
                     width: 32px;
                     height: 24px;
 
-                    &:hover,
-                    &:focus {
+                    > svg > #refresh_opacity {
+                        @include transition('opacity');
+                    }
+                    
+                    > svg #refresh_color {
+                        transition: fill $short ease;
+                    }
+
+                    &:hover {
                         > svg > #refresh_opacity {
                             opacity: 1;
                         }
@@ -403,6 +414,21 @@
                     border: 1.5px solid $dark;
                     border-radius: 2px;
                     padding: 8px 0;
+                    transition: color $short ease, border $short ease;
+
+                    &:hover,
+                    &:focus {
+                        color: $lightblue;
+                        border-color: $lightblue;
+                    }
+                }
+
+                &__logout {
+                    &:hover {
+                        svg g {
+                            fill: $lightblue;
+                        }
+                    }
                 }
             }
         }

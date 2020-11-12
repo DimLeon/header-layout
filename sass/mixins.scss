@@ -77,27 +77,6 @@ $breakpoints:(
     justify-content: $justify;  // justify along main axis (y)
 }
 
-
-// z-index
-$z-layers: (
-    below:         -1,
-    zero:           0,
-    default:        1,
-    box-elem:       10,
-    navigation:     20,
-    dropdown:       30,
-    logo:           40
-);
-
-@function z-index($key) {
-    @if map-has-key($z-layers, $key) {
-        @return map-get($z-layers, $key);
-    }
-
-    @warn "Unknown '#{$key}' in $z-layers!";
-    @return null;
-}
-
 // Durations
 $short: 0.2s;
 $normal: 0.3s;

@@ -2,26 +2,10 @@
 (function ($, window, document) {
     $(function () {
 
-        var url = "https://raw.githubusercontent.com/DimLeon/header-layout/3a890cc7cc101b831b13e3ec83f5e23a186a2bca/js/amounts.json?token=AG3YBPA75RV5R45IZFBH3PK7VTXDG";
+        const url = "http://localhost:3000/usersData";
+        const mutableValues = $('ul.details-list').children('li').children('span[data-name]');
 
-        // $.ajax({
-        //     type: 'GET',
-        //     url: url,
-        //     // dataType: 'jsonp',  //use jsonp data type in order to perform cross domain ajax
-        // })
-        // .done(function(data) {
-        //     console.log(data);
-        // })
-        // .fail(function(e) {
-        //     console.log(e);
-        // });
-
-
-        // $.getJSON(url, function(data){
-        //     console.log(data);
-        // }).fail(function(){
-        //     console.log("An error has occurred.");
-        // });
+        loadAmountsData(url);
 
         $('#balanceHandler').on('click', function(e) {
             const dropdown = $(this).children('#account_details');
@@ -43,93 +27,163 @@
         $('#refresh_amounts').on('click', function(e) {
             e.stopPropagation();
 
-            loadAmountsData();            
+            mutableValues.html('<span class="loader"></span>');
+
+            refreshed = true;
+
+            loadAmountsData(url);
         });
+
+        $('#account_details').on('click', function(e) {
+            e.stopPropagation();
+        });
+
+
+        $('#incognitoSwitch').on('click', function() {
+            modeIncognito = !modeIncognito;
+
+            if (!modeIncognito) {
+                $(this).prop("checked");
+            }
+
+            myStorage.setItem('hideAmounts', modeIncognito);
+
+            showHideAmounts(mutableValues, modeIncognito);
+        });
+        
+        if (myStorage.getItem('hideAmounts') === 'true') {
+            modeIncognito = true;
+            $('#incognitoSwitch').prop('checked', 'checked');
+        }
+        
+        else {
+            modeIncognito = false;
+            $('#incognitoSwitch').prop('checked', false);
+        }
+
+        showHideAmounts(mutableValues, modeIncognito);
     });
     // document ready
 
-    let barWidth;
+    let modeIncognito;
+    let refreshed = false;
 
-    const jsonObj = {
-        "user":                 "Jim",
-        "betAvailable":         "1590.00",
-        "withdrawAvailable":    "1590.00",
-        "openBets":             "200.00",
-        "points":               "8260"
+    const myStorage = window.localStorage;
+
+    const maxBonusAmount = 100;
+    const depositValues = [160, 250, 125, 840, 400, 50];
+    const userNames = ["Jim", "George", "Anastasia", "Chris", "Sadie", "Vicky"];
+    const currency = "€";
+
+    const loadAmountsData = (url) => {
+        $.ajax({
+            type: 'GET',
+            url: url,
+        })
+        .done(function(data) {
+            renderUserData(data);
+        })
+        .fail(function() {
+            $('ul.details-list').children('li').children('span[data-name]').html('');
+            $('#account_details').append('<span class="error-overlay">Something went wrong. Please refresh your browser</span>')
+        });
     }
 
-    const depositValues = [160, 250, 125, 840, 400, 50];
-
-
-    function loadAmountsData() {
-        const maxBonusAmount = 100;
-        const amountsObj = jsonObj;
+    const renderUserData = (response) => {
+        // Better not directly modify initial object,
+        // it has to be mutated instead.
+        const userObj = {
+            ...response
+        }
+        
         let bonusLocked = true;
         let unlockValue;
+        let username;
+        let depositValue;
+        let wageredValue;
 
-        const depositValue = depositValues[Math.floor(Math.random() * depositValues.length)];
-        const wageredValue = Math.floor(Math.random() * Math.floor(depositValue));
-
-        // No need to modify initial object,
-        // it has to be mutated instead.
-        const newAmountsObj = {
-            ...amountsObj
-        }
-
-        // Set a random number for user's deposit,
-        // and a random number for user's wagering as well.
-        newAmountsObj.amountDeposit = depositValue;
-        newAmountsObj.wagered = wageredValue;
-
-        
-        // Check if the amount that the user deposit is up to 100 euros,
-        // in order to apply a bonus equal to the deposit.
-        if (depositValue <= maxBonusAmount) {
-            newAmountsObj['bonusAmount'] = depositValue;
+        if (!refreshed) {
+            depositValue = 100;
+            wageredValue = userObj['wagered'];
+            username = userObj['name'];
         }
 
         else {
-            newAmountsObj['bonusAmount'] =  100;
+            username = userNames[Math.floor(Math.random() * userNames.length)];
+            depositValue = depositValues[Math.floor(Math.random() * depositValues.length)];
+            wageredValue = Math.floor(Math.random() * Math.floor(depositValue));
+
+            // set a random user name on each refresh
+            userObj.user = username;
+            
+            // Set a random number for user's deposit,
+            // and a random number for user's wagering as well.
+            userObj.amountDeposit = depositValue;
+            userObj.wagered = wageredValue;
+
+            // Check if the amount that the user deposit is up to 100 euros,
+            // in order to apply a bonus equal to the deposit.
+            if (depositValue <= maxBonusAmount) {
+                userObj['bonusAmount'] = depositValue;
+            }
+
+            else {
+                userObj['bonusAmount'] =  100;
+            }
+
+            const bonusValue = userObj['bonusAmount'];
+
+            const totalAmountForBet = depositValue + bonusValue;
+            const unlockLimit = totalAmountForBet * 5;
+
+            if (bonusValue > wageredValue) {
+                unlockValue = bonusValue - wageredValue;
+            }
+
+            else {
+                unlockValue = 0;
+                bonusLocked = false;
+            }
+            
+            userObj.balanceForUnlock = unlockValue;
+            userObj.bonusBalance = unlockLimit - wageredValue;
         }
 
-        const bonusValue = newAmountsObj['bonusAmount'];
-
-        const totalAmountForBet = depositValue + bonusValue;
-        const unlockLimit = totalAmountForBet * 5;
-
-        if (bonusValue > wageredValue) {
-            unlockValue = bonusValue - wageredValue;
+        if (bonusLocked) {
+            $('#bonusIndicator').html('BONUS <span class="indicator">LOCKED</span>');
         }
 
         else {
-            unlockValue = 0;
-            bonusLocked = false;
+            $('#bonusIndicator').children('.indicator').remove();
         }
-        
-        newAmountsObj.balanceForUnlock = unlockValue;
-        newAmountsObj.bonusBalance = unlockLimit - wageredValue;
 
-        console.log(bonusLocked);
-        console.log('i deposit '+ depositValue);
-        console.log('my bonus is '+ bonusValue);
-        console.log('i will bet '+ wageredValue);
-
-        console.log(barWidth);
-
-        const lockPosition = Math.ceil((barWidth/unlockLimit) * bonusValue);
-
-        console.log(lockPosition);
+        $('#bonus_progress').attr('value', parseInt(wageredValue));
 
         const mutableItems = $('ul.details-list').children('li').children('.details-list__value');
 
         mutableItems.each(function(index, elem) {
             var propKey = $(elem).data('name');
-            var propValue = newAmountsObj[propKey];
+            var propValue = userObj[propKey];
 
-            console.log(propKey,propValue);
-
-            $(elem).html(propValue);
+            $(elem).html(propValue + currency);
         });
+
+        $('.user-basic-info').children('span[data-name]').html(username);
+        $('.amount-text').html(depositValue + currency);
+    }
+
+    const showHideAmounts = (selector, state) => {
+        let visibility = '';
+
+        if (state == true) {
+            visibility = 'hidden';
+        }
+        
+        else {
+            visibility = 'visible';
+        }
+
+        selector.css('visibility', visibility);
     }
 
 }(window.jQuery, window, document))
