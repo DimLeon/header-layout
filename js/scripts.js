@@ -1,7 +1,7 @@
 (function ($, window, document) {
     $(function () {
 
-        const url = "amounts.json/usersData";
+        const url = "amounts.json";
         const mutableValues = $('ul.details-list').children('li').children('span[data-name]');
 
         loadAmountsData(url);
@@ -95,9 +95,11 @@
     const renderUserData = (response) => {
         // Better not directly modify initial object,
         // it has to be mutated instead.
-        const userObj = {
+        const jsonObj = {
             ...response
         }
+
+        const userObj = jsonObj[usersData];
         
         let bonusLocked = true;
         let unlockValue;
