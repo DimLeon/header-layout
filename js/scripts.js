@@ -167,8 +167,8 @@
         const mutableItems = $('ul.details-list').children('li').children('.details-list__value');
 
         mutableItems.each(function(index, elem) {
-            var propKey = $(elem).data('name');
-            var propValue = userObj[propKey];
+            let propKey = $(elem).data('name');
+            let propValue = userObj[propKey];
 
             $(elem).html(propValue + currency);
         });
