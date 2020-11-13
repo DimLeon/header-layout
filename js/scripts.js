@@ -1,7 +1,7 @@
 (function ($, window, document) {
     $(function () {
 
-        const url = "amounts.json";
+        const url = "js/amounts.json";
         const mutableValues = $('ul.details-list').children('li').children('span[data-name]');
 
         loadAmountsData(url);
