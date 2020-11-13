@@ -99,7 +99,7 @@
             ...response
         }
 
-        const userObj = jsonObj[usersData];
+        const userObj = jsonObj['usersData'];
         
         let bonusLocked = true;
         let unlockValue;
