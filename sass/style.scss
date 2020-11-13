@@ -112,6 +112,7 @@
         @include flexH(center, flex-end);
         
         @include viewport('desktop-up') {
+            height: 62px;
             flex: 0 0 30%;
         }
         
