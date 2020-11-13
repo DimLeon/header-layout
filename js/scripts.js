@@ -1,7 +1,7 @@
 (function ($, window, document) {
     $(function () {
 
-        const url = "http://localhost:3000/usersData";
+        const url = "amounts.json";
         const mutableValues = $('ul.details-list').children('li').children('span[data-name]');
 
         loadAmountsData(url);
@@ -50,7 +50,6 @@
             else {
                 myStorage.removeItem('amounts');
             }
-
 
             showHideAmounts(mutableValues, modeIncognito);
         });
